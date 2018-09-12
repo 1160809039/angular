@@ -1,2 +1,14 @@
-# angular
-angular4的一个简单的后台管理系统
+# 项目简介
+angular4开发的一个简单的博客后台
+
+<hr/>
+
+|author|shaozeming|
+|:---|:---|
+|qq|1160809039|
+
+<hr/>
+
+## 运行
+根目录下 npm i <br/>
+运行 npm run start<br/>
