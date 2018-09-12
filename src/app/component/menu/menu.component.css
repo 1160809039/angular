@@ -1,0 +1,17 @@
+
+:host{
+  height: 100%;
+  width: 100%;
+}
+.content_wrapper{
+  height: 100%;
+}
+.content_back{
+  background: #F3F3F4;
+  min-height: 300px;
+  padding: 30px 50px;
+}
+.content_header{
+  height: 20px;
+  background: #F3F3F4;
+}

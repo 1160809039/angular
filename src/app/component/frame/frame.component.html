@@ -1,0 +1,47 @@
+<nz-layout >
+   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+     <div class="logo">
+     </div>
+     <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+
+       <!-- <span *ngFor="let menuItem of menuList">
+        {{menuItem.title}}
+       </span> -->
+     <ng-container *ngFor="let menuTitle of menuList" >
+       <li nz-submenu *ngIf="!menuTitle.parentid" >
+
+           <span title><i class="anticon {{menuTitle.icon}}"></i><span class="nav-text">{{menuTitle.title}}</span></span>
+           <ul>
+               <ng-container *ngFor="let menuItem of menuList">
+                <li nz-menu-item  *ngIf="menuItem.parentid==menuTitle._id" (click)="pageChange(menuTitle.title,menuItem)">{{menuItem.title}}</li>
+              </ng-container>
+           </ul>
+
+       </li>
+      </ng-container>
+
+
+
+     </ul>
+   </nz-sider>
+   <nz-layout style="background:#F3F3F4;">
+     <nz-header style="background: #F3F3F4; padding:0; border-bottom:solid #2F4050 2.5px;position:relative;">
+       <i class="anticon s_menu_logo trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+       <app-tabs  [pageComponent]="pageComponent"  [tabs]="tabs" (onInitPage)="onInitPage($event)" (onClosePage)="pagecontainer.onClosePage($event)"></app-tabs>
+
+     </nz-header>
+     <nz-content style="margin:0 16px;display: flex;flex-direction: column;overflow-y:auto;">
+       <nz-breadcrumb style="margin:12px 0;">
+         <nz-breadcrumb-item *ngIf="menuFirst">{{menuFirst}}</nz-breadcrumb-item>
+         <nz-breadcrumb-item *ngIf="menuSecond">{{menuSecond}}</nz-breadcrumb-item>
+       </nz-breadcrumb>
+       <div style="padding:24px; background: #F3F3F4; flex:auto;scroll-y:auto;">
+        <app-pagecontainer [pageComponent]="pageComponent"  #pagecontainer>
+
+        </app-pagecontainer>
+
+       </div>
+     </nz-content>
+     <nz-footer style="text-align: center;">© 2017-2018 shaozeming.xin 版权所有 ICP证：浙ICP备17036839号-2 联系邮箱：1160809039@qq.com</nz-footer>
+   </nz-layout>
+ </nz-layout>

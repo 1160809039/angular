@@ -1,0 +1,20 @@
+<div class="" [style.display]="data._id==stateService.menuSelectId?'block':'none'">
+
+  <nz-collapseset  [nzBordered]="false">
+      <nz-collapse class="s_collapse" [nzTitle]="'游客访问统计'" [nzActive]="true" >
+        <div echarts [options]="chartOption" [loading]="showloading" class="demo-chart"></div>
+      </nz-collapse>
+
+      <nz-collapse class="s_collapse" [nzTitle]="'每天流量统计'" [nzActive]="false" >
+          <div echarts [options] = "Baroptions" [loading]="showloading" class="demo-chart"></div>
+      </nz-collapse>
+
+      <nz-collapse class="s_collapse" [nzTitle]="'评论统计'" [nzActive]="false" >
+         <div echarts [options] = "linkoption" [loading]="showloading" class="demo-chart"></div>
+      </nz-collapse>
+
+      <nz-collapse class="s_collapse" [nzTitle]="'点击统计'" [nzActive]="false" >
+         <div echarts [options] = "mapoption" [loading]="showloading" class="demo-chart"></div>
+      </nz-collapse>
+    </nz-collapseset>
+</div>

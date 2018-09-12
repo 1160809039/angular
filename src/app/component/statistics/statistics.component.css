@@ -1,0 +1,38 @@
+:host ::ng-deep .demo-chart{
+  width: 95% ;
+  padding-right: 10px;
+}
+
+:host ::ng-deep .s_collapse{
+  margin-bottom: 30px
+}
+
+:host ::ng-deep .s_collapse .ant-collapse-header{
+  background: #fff
+}
+ :host ::ng-deep  .ant-collapse{
+   border: none
+ }
+
+:host ::ng-deep .ant-collapse-borderless{
+    background: #f3f3f4
+  }
+
+:host ::ng-deep .ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content{
+    background: #fff
+}
+
+:host ::ng-deep .ant-collapse-header{
+  border-image: none;
+    border-style: solid solid none;
+    border-width: 4px 1px 1px 1px;
+    border-bottom: 1px;
+    border-color: #e7eaec;
+      background: #fff;
+}
+
+:host ::ng-deep .ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content{
+    border-bottom: none;
+margin-left:1px;
+margin-right: 1px
+}

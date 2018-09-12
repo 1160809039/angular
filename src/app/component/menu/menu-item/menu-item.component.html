@@ -1,0 +1,102 @@
+<div class="">
+<ng-container *ngFor="let menuTitle of menuList" >
+  <div class="menuitem_wrapper" *ngIf="!menuTitle.parentid">
+      <div class="menuitem_left">
+         <div class="menuitem_circle">
+            <i class="anticon {{menuTitle.icon}}"></i>
+         </div>
+         <div class="menuitem_line">
+
+         </div>
+      </div>
+
+      <div class="menuitem_right">
+         <h3> {{menuTitle.title}}</h3>
+         <ul >
+           <ng-container *ngFor="let menuItem of menuList">
+            <li  *ngIf="menuItem.parentid==menuTitle._id" >
+              {{menuItem.title}}
+               <i class="anticon anticon-minus"  (click)="deleteMenu(menuItem._id)"></i>
+
+              <i class="anticon anticon-edit" (click)="showEdit(menuItem._id,menuItem.title,menuItem.link)"></i>
+              <div class=" menuitem_edit" *ngIf="menuId==menuItem._id">
+                <nz-input [(ngModel)]="_menuTitle">
+
+                  <ng-template #addOnBefore>
+                    <nz-select style="width: 70px;" [(ngModel)]="_menuLink" >
+                      <nz-option *ngFor="let pageName of pagemanage" [nzLabel]="pageName" [nzValue]="pageName" ></nz-option>
+                    </nz-select>
+                  </ng-template>
+               </nz-input>
+
+              </div>
+              <button nz-button [nzType]="'primary'" *ngIf="menuId==menuItem._id"  (click)="midifiedMenu(menuId)">
+                <span>修改</span>
+              </button>
+            </li>
+
+           </ng-container>
+           <li>
+             <div class=" menuitem_add" *ngIf="moduleId==menuTitle._id">
+               <nz-input [(ngModel)]="_menuTitle">
+
+                 <ng-template #addOnBefore>
+                   <nz-select style="width: 70px;" [(ngModel)]="_menuLink" >
+                     <nz-option *ngFor="let pageName of pagemanage" [nzLabel]="pageName" [nzValue]="pageName" ></nz-option>
+                   </nz-select>
+                 </ng-template>
+              </nz-input>
+
+             </div>
+             <button nz-button [nzType]="'primary'" *ngIf="moduleId==menuTitle._id"  (click)="addMenu()">
+               <span>确定</span>
+             </button>
+           </li>
+         </ul>
+
+      </div>
+      <div class="menuitem_modified">
+
+        <button nz-button [nzType]="'primary'" (click)="showAdd(menuTitle._id)">
+          <span>添加</span>
+         </button>
+
+        <button nz-button [nzType]="'primary'" (click)="showModal(menuTitle._id)">
+          <span>修改</span>
+         </button>
+
+         <nz-popconfirm [nzTitle]="'确定要删除这个任务吗？'" (nzOnConfirm)="deleteMenu(menuTitle._id)" (nzOnCancel)="cancel()" [nzPlacement]="'bottom'">
+           <button nz-button nz-popconfirm [nzType]="'danger'">
+             <span>删除</span>
+            </button>
+         </nz-popconfirm>
+
+      </div>
+  </div>
+</ng-container>
+
+<nz-modal [nzVisible]="isVisible" [nzTitle]="''" [nzContent]="modalContent" (nzOnCancel)="handleCancel($event)" (nzOnOk)="handleOk($event)">
+      <ng-template #modalContent>
+        <nz-select  style="width: 400px; display:none;"
+           [nzMode]="'multiple'"
+           [nzPlaceHolder]="'请选择目录'"
+           [(ngModel)]="selectedMultipleOption"
+           [nzNotFoundContent]="'无法找到'">
+           <nz-option
+             *ngFor="let option of searchOptions"
+             [nzLabel]="option.title"
+             [nzValue]="option._id"
+             [nzDisabled]="option.disabled">
+           </nz-option>
+         </nz-select>
+
+         图标<i class="anticon {{moduleIcon}}"></i>:标题
+         <nz-input-group [nzSize]="'large'" [nzCompact]="true">
+
+          <input [(ngModel)]="moduleIcon" style="width: 20%;" nz-input>
+          <input [(ngModel)]="moduleTitle" style="width: 30%;" nz-input>
+         </nz-input-group>
+      </ng-template>
+    </nz-modal>
+
+</div>

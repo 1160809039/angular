@@ -1,0 +1,43 @@
+:host {
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.s_tabs_wrapper ul{
+  height: 40px;
+  float: left;
+  box-shadow: -2px -3px 13px 3px #d1cfcf;
+}
+.s_tabs_wrapper i{
+  font-size: 10px;
+
+}
+.s_tabs_wrapper .s_tabs_selected{
+  background: #2F4050;
+  color:#A7B1C2;
+  border-top: 1px solid #2F4050;
+
+}
+.s_tabs_wrapper li{
+  color: #bbb;
+  padding: 0 20px;
+  float: left;
+  line-height: 40px;
+  background: #FAFAFA;
+  border-left: 1px solid #EEEEEE;
+  border-top: 1px solid #EEEEEE;
+
+}
+.s_tabs_wrapper li:hover{
+  cursor: pointer;
+}
+.s_tabs_wrapper li:first-child{
+  /* border-top-left-radius:8px; */
+}
+.s_tabs_wrapper li:last-child{
+  border-right: 1px solid #EEEEEE;
+  /* border-top-right-radius: 8px; */
+}

@@ -1,0 +1,6 @@
+.s_form_wrapper>div{
+   padding: 10px 5px
+}
+:host ::ng-deep .s_loding{
+  text-align: center;
+}

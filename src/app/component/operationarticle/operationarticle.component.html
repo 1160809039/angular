@@ -1,0 +1,58 @@
+
+  <nz-spin class="s_loding" [nzSize]="'large'" [nzSpinning]="isShow" [nzTip]="'正在读取数据...'"></nz-spin>
+<div class="s_form_wrapper" [style.visibility]="isShow?'hidden':''" >
+
+  <div nz-row>
+       <div nz-col [nzSpan]="4">
+         博客标题
+       </div>
+       <div nz-col [nzSpan]="20">
+         <nz-input [(ngModel)]="articleTitle" [nzPlaceHolder]="'输入标题'" [nzSize]="'large'"></nz-input>
+       </div>
+  </div>
+  <div nz-row> 
+       <div nz-col [nzSpan]="4">
+         博客描述
+       </div>
+       <div nz-col [nzSpan]="20">
+          <nz-input [(ngModel)]="articleDesc" [nzType]="'textarea'" [nzRows]="'4'" [nzPlaceHolder]="'输入描述'"></nz-input>
+       </div>
+  </div>
+  <div nz-row>
+       <div nz-col [nzSpan]="4">
+         博客类型
+       </div>
+       <div nz-col [nzSpan]="20">
+         <nz-select style="width: 120px;"  [(ngModel)]="category" [nzPlaceHolder]="'选择类型'" nzAllowClear>
+          <nz-option
+            *ngFor="let option of options"
+            [nzLabel]="option.category_name"
+            [nzValue]="option">
+          </nz-option>
+        </nz-select>
+       </div>
+  </div>
+  <div nz-row>
+       <div nz-col [nzSpan]="4">
+         是否启用
+       </div>
+       <div nz-col [nzSpan]="20">
+         <nz-switch [ngModel]="isEnable">
+           <span checked>启用</span>
+           <span unchecked>禁用</span>
+         </nz-switch>
+       </div>
+  </div>
+  <div nz-row>
+       <div nz-col [nzSpan]="4">
+         内容
+       </div>
+       <div nz-col [nzSpan]="20">
+         <quill-editor  (onEditorCreated)="onEditorCreated($event)" (onContentChanged)="addBindingCreated($event)" [(ngModel)]="articleContent" [placeholder]="'输入内容'" [modules]="quillconfig" [style]="{height: '300px'}">
+
+        </quill-editor>
+        <input type="file" style="display:none" ng2FileSelect [uploader]="uploader" (change)="selectedFileOnChanged($event)" #quillfile>
+        <!-- <textarea id="s_edit"></textarea> -->
+         </div>
+  </div>
+</div>

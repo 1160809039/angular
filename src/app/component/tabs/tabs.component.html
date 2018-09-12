@@ -1,0 +1,14 @@
+<div class="s_tabs_wrapper">
+  <ul>
+
+    <ng-container *ngFor="let tab of tabs">
+      <li *ngIf="tab._id==0" >{{tab.title}}</li>
+      <li *ngIf="tab._id!=0" (click)="switchTab(tab._id)" [ngClass]="stateService.menuSelectId==tab._id?'s_tabs_selected':''">{{tab.title}}
+        <i  (click)="closeTab(tab._id)" class="anticon anticon-close-circle"></i>
+      </li>
+    </ng-container>
+
+
+
+  </ul>
+</div>

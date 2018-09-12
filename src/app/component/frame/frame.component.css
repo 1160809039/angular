@@ -1,0 +1,59 @@
+:host ::ng-deep .ant-layout{
+  width: 100%;
+  height: 100%;
+}
+
+:host ::ng-deep .ant-layout-sider,.ant-menu-dark, .ant-menu-dark .ant-menu-sub{
+  background: #233645;
+}
+:host ::ng-deep .ant-menu-dark .ant-menu-inline.ant-menu-sub{
+  background: #293846;
+}
+:host ::ng-deep .ant-menu.ant-menu-dark .ant-menu-item-selected{
+  background:#232F3B;
+}
+:host ::ng-deep .logo {
+      height: 32px;
+      background: #333;
+      border-radius: 6px;
+      margin: 16px;
+    }
+
+    :host ::ng-deep .ant-layout-sider-collapsed .nav-text {
+      display: none;
+    }
+
+    :host ::ng-deep .ant-layout-sider-collapsed .ant-menu-submenu-title:after {
+      display: none;
+    }
+
+    :host ::ng-deep .s_menu_logo.trigger{
+      color: #fff;
+      background: #1AB394;
+      box-sizing: content-box;
+      line-height: 38px;
+      padding: 0 10px;
+      border-radius: 4px;
+      margin-left: 10px;
+    }
+    :host ::ng-deep .s_menu_logo.trigger:hover {
+      background: #18A78A;
+      color: #fff;
+   }
+
+    :host ::ng-deep .ant-layout-sider-collapsed .anticon {
+      font-size: 16px;
+      margin-left: 8px;
+    }
+
+    :host ::ng-deep .trigger {
+      font-size: 18px;
+      line-height: 64px;
+      padding: 0 16px;
+      cursor: pointer;
+      transition: color .3s;
+    }
+
+    :host ::ng-deep .trigger:hover {
+      color: #108ee9;
+    }
